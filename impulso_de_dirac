@@ -1,0 +1,41 @@
+%Codigo MatLab
+% Impulso de Dirac testando como fazer
+
+x = -1:1:1;
+y = dirac(x);
+idx = y == Inf; % find Inf
+y(idx) = 1;     % set Inf to finite value
+figure(1);
+stem(x,y);
+title('Impulso na origem');
+%---------------------------------------------------------------------
+
+x = -2:1:2;
+y = dirac(x-1);
+idx = y == Inf; % find Inf
+y(idx) = 1;     % set Inf to finite value
+figure(2);
+stem(x,y);
+title('Impulso deslocado da origem em uma unidade');
+%---------------------------------------------------------------------
+
+x = -1:1:2;
+y = dirac(x) + dirac(x-1);
+idx = y == Inf;   % find Inf
+y(idx) = 0.5;     % set Inf to finite value
+figure(3);
+stem(x,y);
+title('Um impulso na origem e outro deslocado com amplitude 0.5');
+%-----------------------------------------------------------------------
+
+x = -1:1:2;
+y1 = dirac(x) + dirac(x-1);
+idx = y1 == Inf;   % find Inf
+y1(idx) = 0.5;     % set Inf to finite value
+y2 = dirac(x-1);
+idx = y2 == Inf;   % find Inf
+y2(idx) = 2;     % set Inf to finite value
+y3=y1+y2
+figure(4);
+stem(x,y3);
+title('Um na origem com amplitude 0.5 e outro deslocado com amplitude 2');
