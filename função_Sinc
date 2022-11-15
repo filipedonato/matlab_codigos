@@ -1,0 +1,19 @@
+%Como plotar uma simples função SINC no MatLab
+%A função Sinc é dada por:
+%sinc = seno(pi*x)/(pi*x)
+%onde,
+%y = sin(pi*x)/(pi*x) , se x ~= 0
+%  = 1                , se x == 0
+clear;
+clc;
+%Vou gerar um vetor linearmente espaçado de -10 até 10 com 256 pontos.
+n = linspace(-10, 10, 256); 
+x = sinc(n*pi);
+
+%Agora vou plotar
+figure(1);
+plot(n, x);
+title("Função Sinc");
+ylabel("Sinc(n)");
+xlabel("n");
+grid on;
